@@ -6,7 +6,10 @@ local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shl
 
 local CurrentGame = game:GetService("MarketplaceService"):GetProductInfo(game.PlaceId).Name
 
+repeat wait() until game:isLoaded()
+
 local Window = OrionLib:MakeWindow({Name = "Reality Hub - " .. CurrentGame, HidePremium = false, SaveConfig = true, IntroEnabled = false, ConfigFolder = "RealityHUB"})
+
 
 --Just the notification that is sent if the script is executed without an ERR0R
 OrionLib:MakeNotification({
@@ -17,25 +20,30 @@ OrionLib:MakeNotification({
 })
 
 
-
-local Tab = Window:MakeTab({
-	Name = "Main",
+local Farming = Window:MakeTab({
+	Name = "Farming",
 	Icon = "rbxassetid://4483345998",
 	PremiumOnly = false
 })
 
-Tab:AddLabel("Farming Section")
+Farming:AddLabel("Farming Section")
 
 
-
-
-
-Tab:AddToggle({
+Farming:AddToggle({
 	Name = "AutoFarm Items",
 	Default = false,
 	Callback = function(Value)
 		_G.AutoFarm = Value
 	end    
+})
+
+
+
+Farming:AddButton({
+	Name = "TP to end of game",
+	Callback = function()
+            game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-399.289794921875, 18.798019409179688, 645.77490234375)
+  	end    
 })
 
 
@@ -75,14 +83,18 @@ function everyItemFarm()
 end
 
 
+local Player = Window:MakeTab({
+	Name = "Player",
+	Icon = "rbxassetid://4483345998",
+	PremiumOnly = false
+})
+
+
+Player:AddLabel("Player Section")
 
 
 
-Tab:AddLabel("Player Section")
-
-
-
-Tab:AddSlider({
+Player:AddSlider({
 	Name = "WalkSpeed",
 	Min = 1,
 	Max = 100,
@@ -95,37 +107,60 @@ Tab:AddSlider({
 	end    
 })
 
-Tab:AddButton({
+Player:AddButton({
 	Name = "Set WalkSpeed",
 	Callback = function()
       		game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = _G.WalkSpeed
   	end    
 })
 
-Tab:AddLabel("ESP Section")
+Player:AddToggle({
+	Name = "Noclip",
+	Callback = function(Value)
+			_G.Noclip = Value
+	end
+})
 
-Tab:AddButton({
+function noclip()
+	game:GetService("RunService").Stepped:Connect(function()
+		for i,v in pairs(player.Character:GetDescendants()) do
+			if v:IsA("BasePart") and _G.Noclip then
+				v.CanCollide = false
+			end
+		end
+	end)
+end
+
+local Visuals = Window:MakeTab({
+	Name = "Visuals",
+	Icon = "rbxassetid://4483345998",
+	PremiumOnly = false
+})
+
+Visuals:AddLabel("ESP Section")
+
+Visuals:AddButton({
 	Name = "Player ESP",
 	Callback = function()
       		playerESP()
   	end    
 })
 
-Tab:AddButton({
+Visuals:AddButton({
 	Name = "Blue ESP",
 	Callback = function()
       		blueESP()
   	end    
 })
 
-Tab:AddButton({
+Visuals:AddButton({
 	Name = "Green ESP",
 	Callback = function()
       		greenESP()
   	end    
 })
 
-Tab:AddButton({
+Visuals:AddButton({
 	Name = "Orange ESP",
 	Callback = function()
       		orangeESP()
@@ -179,4 +214,5 @@ end
 
 OrionLib:Init()
 
+noclip()
 everyItemFarm()
