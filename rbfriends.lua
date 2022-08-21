@@ -192,6 +192,8 @@ function blueESP()
 end
 
 
+
+
 function greenESP()
 	if not game:GetService("Workspace").Monsters.Green:FindFirstChild("Highlight") and game:GetService("Workspace").Monsters.Green then
 		local greenESP = Instance.new("Highlight", game:GetService("StarterGui"))
@@ -211,6 +213,28 @@ function orangeESP()
 		orangeESP.Parent = game:GetService("Workspace").Monsters.Orange
 	end
 end
+
+local Misc = Window:MakeTab({
+	Name = "Misc",
+	Icon = "rbxassetid://4483345998",
+	PremiumOnly = false
+})
+
+Misc:AddLabel("Misc Section")
+
+Misc:AddButton({
+	Name = "Equip Box",
+	Callback = function()
+      		game:GetService("ReplicatedStorage").communication.boxes.cl.BoxUpdated:FireServer("Equip")
+  	end    
+})
+
+Misc:AddButton({
+	Name = "Unequip Box",
+	Callback = function()
+      		game:GetService("ReplicatedStorage").communication.boxes.cl.BoxUpdated:FireServer("Unequip")
+  	end    
+})
 
 OrionLib:Init()
 
