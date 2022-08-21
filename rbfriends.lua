@@ -47,7 +47,7 @@ Farming:AddButton({
 })
 
 local root = player.Character.HumanoidRootPart
-local speed = 0.1
+local speed = 0.01
 function everyItemFarm() 
 	while true do wait(0.00000001)
 			for i, v in pairs(game.Workspace:GetChildren()) do
@@ -56,7 +56,7 @@ function everyItemFarm()
 					task.wait(speed)
 					firetouchinterest(player.Character.Head, v.TouchTrigger, 1)
 					task.wait(speed)
-					root.CFrame = workspace.GroupBuildStructures.BlockTower.Trigger.CFrame + Vector3.new(0, 4, 0)
+					firetouchinterest(player.Character.Head, root.CFrame = workspace.GroupBuildStructures.BlockTower.Trigger, 1)
 					task.wait(speed)
 				end
 			
@@ -65,7 +65,7 @@ function everyItemFarm()
 					task.wait(speed)
 					firetouchinterest(player.Character.Head, v.TouchTrigger, 1)
 					task.wait(speed)
-					root.CFrame = workspace.GroupBuildStructures.FoodCounter.Trigger.CFrame + Vector3.new(0, 4, 0)
+					firetouchinterest(player.Character.Head, workspace.GroupBuildStructures.FoodCounter.Trigger, 1)
 					task.wait(speed)
 				end
 			
@@ -74,7 +74,7 @@ function everyItemFarm()
 					task.wait(speed)
 					firetouchinterest(player.Character.Head, v.TouchTrigger, 1)
 					task.wait(speed)
-					root.CFrame = workspace.GroupBuildStructures.FuseBoard.Trigger.CFrame + Vector3.new(0, 4, 0)
+					firetouchinterest(player.Character.Head, workspace.GroupBuildStructures.FuseBoard.Trigger, 1)
 					task.wait(speed)
 				end
 					
@@ -83,7 +83,7 @@ function everyItemFarm()
 					task.wait(speed)
 					firetouchinterest(player.Character.Head, v.TouchTrigger, 1)
 					task.wait(speed)
-					root.CFrame = workspace.GroupBuildStructures.BatteryBox.Trigger.CFrame + Vector3.new(0, 4, 0)
+					firetouchinterest(player.Character.Head, workspace.GroupBuildStructures.BatteryBox.Trigger, 1)
 					task.wait(speed)
 				end
 		end
