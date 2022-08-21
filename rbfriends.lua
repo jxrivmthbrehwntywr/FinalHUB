@@ -74,7 +74,7 @@ function everyItemFarm()
 					task.wait(speed)
 					firetouchinterest(player.Character.Head, workspace.GroupBuildStructures.BlockTower.Trigger, 1)
 					task.wait(speed)
-				else
+				end
 			
 				if v.Name:find("Food") and _G.AutoFarm then
 					firetouchinterest(player.Character.Head, v.TouchTrigger, 0)
@@ -85,7 +85,7 @@ function everyItemFarm()
 					task.wait(speed)
 					firetouchinterest(player.Character.Head, workspace.GroupBuildStructures.FoodCounter.Trigger, 1)
 					task.wait(speed)
-				else
+				end
 			
 				if v.Name:find("Fuse") and _G.AutoFarm then
 					firetouchinterest(player.Character.Head, v.TouchTrigger, 0)
@@ -96,7 +96,7 @@ function everyItemFarm()
 					task.wait(speed)
 					firetouchinterest(player.Character.Head, workspace.GroupBuildStructures.FuseBoard.Trigger, 1)
 					task.wait(speed)
-				else
+				end
 					
 				if v.Name:find("Battery") and _G.AutoFarm then
 					firetouchinterest(player.Character.Head, v.TouchTrigger, 0)
@@ -107,9 +107,9 @@ function everyItemFarm()
 					task.wait(speed)
 					firetouchinterest(player.Character.Head, workspace.GroupBuildStructures.BatteryBox.Trigger, 1)
 					task.wait(speed)
-				else
+				end
 				
-				if not v.Name:find("Battery") and not v.Name:find("Fuse") and not v.Name:find("Food") and not v.Name:find("Block") and #game.Players.LocalPlayer.Character.Backpackthen
+				if not v.Name:find("Battery") and not v.Name:find("Fuse") and not v.Name:find("Food") and not v.Name:find("Block") and #game.Players.LocalPlayer.Backpack:GetChildren() > 0 then
 					--Battery
 					if workspace.GroupBuildStructures.BatteryBox.Trigger then
 					firetouchinterest(player.Character.Head, workspace.GroupBuildStructures.BatteryBox.Trigger, 0)
@@ -138,8 +138,7 @@ function everyItemFarm()
 						firetouchinterest(player.Character.Head, workspace.GroupBuildStructures.BlockTower.Trigger, 1)
 						task.wait(speed)			
 					end
-					
-				end
+            end
 		end
 	end	
 end
