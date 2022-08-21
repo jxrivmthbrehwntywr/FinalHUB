@@ -37,6 +37,20 @@ Farming:AddToggle({
 	end    
 })
 
+Farming:AddToggle({
+	Name = "Auto Fake Equip Box",
+	Default = false,
+	Callback = function(Value)
+		_G.fakeBox = Value
+	end    
+})
+
+function fakeBox()
+	while _G.fakeBox do wait(0.0001) 
+		game:GetService("ReplicatedStorage").communication.boxes.cl.BoxUpdated:FireServer("Equip")
+	end
+end
+
 
 
 Farming:AddButton({
@@ -60,7 +74,7 @@ function everyItemFarm()
 					task.wait(speed)
 					firetouchinterest(player.Character.Head, workspace.GroupBuildStructures.BlockTower.Trigger, 1)
 					task.wait(speed)
-				end
+				else
 			
 				if v.Name:find("Food") and _G.AutoFarm then
 					firetouchinterest(player.Character.Head, v.TouchTrigger, 0)
@@ -71,7 +85,7 @@ function everyItemFarm()
 					task.wait(speed)
 					firetouchinterest(player.Character.Head, workspace.GroupBuildStructures.FoodCounter.Trigger, 1)
 					task.wait(speed)
-				end
+				else
 			
 				if v.Name:find("Fuse") and _G.AutoFarm then
 					firetouchinterest(player.Character.Head, v.TouchTrigger, 0)
@@ -82,7 +96,7 @@ function everyItemFarm()
 					task.wait(speed)
 					firetouchinterest(player.Character.Head, workspace.GroupBuildStructures.FuseBoard.Trigger, 1)
 					task.wait(speed)
-				end
+				else
 					
 				if v.Name:find("Battery") and _G.AutoFarm then
 					firetouchinterest(player.Character.Head, v.TouchTrigger, 0)
@@ -93,6 +107,38 @@ function everyItemFarm()
 					task.wait(speed)
 					firetouchinterest(player.Character.Head, workspace.GroupBuildStructures.BatteryBox.Trigger, 1)
 					task.wait(speed)
+				else
+				
+				if not v.Name:find("Battery") and not v.Name:find("Fuse") and not v.Name:find("Food") and not v.Name:find("Block") and #game.Players.LocalPlayer.Character.Backpackthen
+					--Battery
+					if workspace.GroupBuildStructures.BatteryBox.Trigger then
+					firetouchinterest(player.Character.Head, workspace.GroupBuildStructures.BatteryBox.Trigger, 0)
+					task.wait(speed)
+					firetouchinterest(player.Character.Head, workspace.GroupBuildStructures.BatteryBox.Trigger, 1)	
+					task.wait(speed)
+					end
+					--Fuse
+					if workspace.GroupBuildStructures.FuseBoard then
+						firetouchinterest(player.Character.Head, workspace.GroupBuildStructures.FuseBoard.Trigger, 0)
+						task.wait(speed)
+						firetouchinterest(player.Character.Head, workspace.GroupBuildStructures.FuseBoard.Trigger, 1)
+						task.wait(speed)
+					end
+					--Food
+					if workspace.GroupBuildStructures.FoodCounter then
+						firetouchinterest(player.Character.Head, workspace.GroupBuildStructures.FoodCounter.Trigger, 0)
+						task.wait(speed)
+						firetouchinterest(player.Character.Head, workspace.GroupBuildStructures.FoodCounter.Trigger, 1)
+						task.wait(speed)					
+					end
+					--Blocks
+					if workspace.GroupBuildStructures.BlockTower then
+						firetouchinterest(player.Character.Head, workspace.GroupBuildStructures.BlockTower.Trigger, 0)
+						task.wait(speed)
+						firetouchinterest(player.Character.Head, workspace.GroupBuildStructures.BlockTower.Trigger, 1)
+						task.wait(speed)			
+					end
+					
 				end
 		end
 	end	
@@ -238,21 +284,10 @@ local Misc = Window:MakeTab({
 
 Misc:AddLabel("Misc Section")
 
-Misc:AddButton({
-	Name = "Equip Box",
-	Callback = function()
-      		game:GetService("ReplicatedStorage").communication.boxes.cl.BoxUpdated:FireServer("Equip")
-  	end    
-})
-
-Misc:AddButton({
-	Name = "Unequip Box",
-	Callback = function()
-      		game:GetService("ReplicatedStorage").communication.boxes.cl.BoxUpdated:FireServer("Unequip")
-  	end    
-})
 
 OrionLib:Init()
 
-noclip()
+
 everyItemFarm()
+noclip()
+fakeBox()
