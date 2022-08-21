@@ -276,3 +276,4 @@ OrionLib:Init()
 
 noclip()
 everyItemFarm()
+autoPlace()
