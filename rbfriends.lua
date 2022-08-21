@@ -46,36 +46,44 @@ Farming:AddButton({
   	end    
 })
 
-
+local root = player.Character.HumanoidRootPart
 local speed = 0.1
 function everyItemFarm() 
 	while true do wait(0.00000001)
 			for i, v in pairs(game.Workspace:GetChildren()) do
 				if v.Name:find("Block") and _G.AutoFarm then
-					game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = v.TouchTrigger.CFrame
+					firetouchinterest(player.Character.Head, v.TouchTrigger, 0)
 					task.wait(speed)
-					game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = workspace.GroupBuildStructures.BlockTower.Trigger.CFrame + Vector3.new(0, 4, 0)
+					firetouchinterest(player.Character.Head, v.TouchTrigger, 1)
+					task.wait(speed)
+					root.CFrame = workspace.GroupBuildStructures.BlockTower.Trigger.CFrame + Vector3.new(0, 4, 0)
 					task.wait(speed)
 				end
 			
 				if v.Name:find("Food") and _G.AutoFarm then
-					game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = v.TouchTrigger.CFrame
+					firetouchinterest(player.Character.Head, v.TouchTrigger, 0)
 					task.wait(speed)
-					game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = workspace.GroupBuildStructures.FoodCounter.Trigger.CFrame + Vector3.new(0, 4, 0)
+					firetouchinterest(player.Character.Head, v.TouchTrigger, 1)
+					task.wait(speed)
+					root.CFrame = workspace.GroupBuildStructures.FoodCounter.Trigger.CFrame + Vector3.new(0, 4, 0)
 					task.wait(speed)
 				end
 			
 				if v.Name:find("Fuse") and _G.AutoFarm then
-					game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = v.TouchTrigger.CFrame
+					firetouchinterest(player.Character.Head, v.TouchTrigger, 0)
 					task.wait(speed)
-					game.Players.LocalPlayer.Character. HumanoidRootPart.CFrame = workspace.GroupBuildStructures.FuseBoard.Trigger.CFrame + Vector3.new(0, 4, 0)
+					firetouchinterest(player.Character.Head, v.TouchTrigger, 1)
+					task.wait(speed)
+					root.CFrame = workspace.GroupBuildStructures.FuseBoard.Trigger.CFrame + Vector3.new(0, 4, 0)
 					task.wait(speed)
 				end
 					
 				if v.Name:find("Battery") and _G.AutoFarm then
-					game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = v.TouchTrigger.CFrame
+					firetouchinterest(player.Character.Head, v.TouchTrigger, 0)
 					task.wait(speed)
-					game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = workspace.GroupBuildStructures.BatteryBox.Trigger.CFrame + Vector3.new(0, 4, 0)
+					firetouchinterest(player.Character.Head, v.TouchTrigger, 1)
+					task.wait(speed)
+					root.CFrame = workspace.GroupBuildStructures.BatteryBox.Trigger.CFrame + Vector3.new(0, 4, 0)
 					task.wait(speed)
 				end
 		end
