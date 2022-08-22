@@ -48,7 +48,7 @@ Farming:AddToggle({
 local speed = 0.001
 
 function autoPlace()
-	while _G.autoPlace == true do wait(0.00001)
+	while _G.autoPlace == true and #player.Backpack:GetChildren() > 0 do wait(0.00001)
 		if workspace.GroupBuildStructures.BlockTower then
 			firetouchinterest(player.Character.Head, workspace.GroupBuildStructures.BlockTower.Trigger, 0)
 			task.wait(speed)
