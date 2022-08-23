@@ -95,15 +95,12 @@ function everyItemFarm()
 	while true do wait(0.00000001)
 			for i, v in pairs(game.Workspace:GetChildren()) do
 				if v.Name:find("Block") and _G.AutoFarm then
-					repeat 
+					 
 					firetouchinterest(player.Character.Head, v.TouchTrigger, 0)
 					task.wait(speed)
 					firetouchinterest(player.Character.Head, v.TouchTrigger, 1)
 					task.wait(speed)
-					firetouchinterest(player.Character.Head, workspace.GroupBuildStructures.BlockTower.Trigger, 0)
-					task.wait(speed)
-					firetouchinterest(player.Character.Head, workspace.GroupBuildStructures.BlockTower.Trigger, 1)
-					task.wait(speed)
+					tp(workspace.GroupBuildStructures.BlockTower.Trigger.CFrame)
 				end
 			
 				if v.Name:find("Food") and _G.AutoFarm then
@@ -111,10 +108,7 @@ function everyItemFarm()
 					task.wait(speed)
 					firetouchinterest(player.Character.Head, v.TouchTrigger, 1)
 					task.wait(speed)
-					firetouchinterest(player.Character.Head, workspace.GroupBuildStructures.FoodCounter.Trigger, 0)
-					task.wait(speed)
-					firetouchinterest(player.Character.Head, workspace.GroupBuildStructures.FoodCounter.Trigger, 1)
-					task.wait(speed)
+					tp(workspace.GroupBuildStructures.FoodCounter.Trigger.CFrame)
 				end
 			
 				if v.Name:find("Fuse") and _G.AutoFarm then
@@ -122,10 +116,7 @@ function everyItemFarm()
 					task.wait(speed)
 					firetouchinterest(player.Character.Head, v.TouchTrigger, 1)
 					task.wait(speed)
-					firetouchinterest(player.Character.Head, workspace.GroupBuildStructures.FuseBoard.Trigger, 0)
-					task.wait(speed)
-					firetouchinterest(player.Character.Head, workspace.GroupBuildStructures.FuseBoard.Trigger, 1)
-					task.wait(speed)
+					tp(workspace.GroupBuildStructures.FuseBoard.Trigger.CFrame)
 				end
 					
 				if v.Name:find("Battery") and _G.AutoFarm then
@@ -133,10 +124,7 @@ function everyItemFarm()
 					task.wait(speed)
 					firetouchinterest(player.Character.Head, v.TouchTrigger, 1)
 					task.wait(speed)
-					firetouchinterest(player.Character.Head, workspace.GroupBuildStructures.BatteryBox.Trigger, 0)
-					task.wait(speed)
-					firetouchinterest(player.Character.Head, workspace.GroupBuildStructures.BatteryBox.Trigger, 1)
-					task.wait(speed)
+					tp(workspace.GroupBuildStructures.BatteryBox.Trigger.CFrame)
 				end
 		end
 	end	
