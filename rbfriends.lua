@@ -45,7 +45,7 @@ Farming:AddToggle({
 	end    
 })
 
-local speed = 0.001
+local speed = 0.01
 
 function autoPlace()
 	while _G.autoPlace == true and #player.Backpack:GetChildren() > 0 do wait(0.00001)
