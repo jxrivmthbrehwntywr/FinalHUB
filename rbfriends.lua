@@ -8,7 +8,7 @@ local CurrentGame = game:GetService("MarketplaceService"):GetProductInfo(game.Pl
 
 repeat wait() until game:isLoaded()
 
-local Window = OrionLib:MakeWindow({Name = "Reality Hub - " .. CurrentGame, HidePremium = false, SaveConfig = true, IntroEnabled = false, ConfigFolder = "RealityHUB"})
+local Window = OrionLib:MakeWindow({Name = "Blaze Hub - " .. CurrentGame, HidePremium = false, SaveConfig = true, IntroEnabled = false, ConfigFolder = "RealityHUB"})
 
 
 --Just the notification that is sent if the script is executed without an ERR0R
