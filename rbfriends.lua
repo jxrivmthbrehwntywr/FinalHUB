@@ -88,10 +88,14 @@ Farming:AddButton({
 
 local root = player.Character.HumanoidRootPart
 
+function tp(pos)
+	root.CFrame = pos
+end
 function everyItemFarm() 
 	while true do wait(0.00000001)
 			for i, v in pairs(game.Workspace:GetChildren()) do
 				if v.Name:find("Block") and _G.AutoFarm then
+					repeat 
 					firetouchinterest(player.Character.Head, v.TouchTrigger, 0)
 					task.wait(speed)
 					firetouchinterest(player.Character.Head, v.TouchTrigger, 1)
