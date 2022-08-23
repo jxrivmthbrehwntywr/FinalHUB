@@ -37,44 +37,9 @@ Farming:AddToggle({
 	end    
 })
 
-Farming:AddToggle({
-	Name = "Auto Place Blocks",
-	Default = false,
-	Callback = function(Value)
-		_G.autoPlace = Value
-	end    
-})
+
 
 local speed = 0.01
-
-function autoPlace()
-	while _G.autoPlace == true and #player.Backpack:GetChildren() > 0 do wait(0.00001)
-		if workspace.GroupBuildStructures.BlockTower then
-			firetouchinterest(player.Character.Head, workspace.GroupBuildStructures.BlockTower.Trigger, 0)
-			task.wait(speed)
-			firetouchinterest(player.Character.Head, workspace.GroupBuildStructures.BlockTower.Trigger, 1)
-			task.wait(speed)
-		end
-		if workspace.GroupBuildStructures.FoodCounter then
-			firetouchinterest(player.Character.Head, workspace.GroupBuildStructures.FoodCounter.Trigger, 0)
-			task.wait(speed)
-			firetouchinterest(player.Character.Head, workspace.GroupBuildStructures.FoodCounter.Trigger, 1)
-			task.wait(speed)
-		end
-		if workspace.GroupBuildStructures.FuseBoard then
-			firetouchinterest(player.Character.Head, workspace.GroupBuildStructures.FuseBoard.Trigger, 0)
-			task.wait(speed)
-			firetouchinterest(player.Character.Head, workspace.GroupBuildStructures.FuseBoard.Trigger, 1)
-			task.wait(speed)
-		end
-		if workspace.GroupBuildStructures.BatteryBox then
-			firetouchinterest(player.Character.Head, workspace.GroupBuildStructures.BatteryBox.Trigger, 0)
-			task.wait(speed)
-			firetouchinterest(player.Character.Head, workspace.GroupBuildStructures.BatteryBox.Trigger, 1)
-			task.wait(speed)	
-		end
-	end
-end
 
 
 Farming:AddButton({
@@ -100,7 +65,7 @@ function everyItemFarm()
 					task.wait(speed)
 					firetouchinterest(player.Character.Head, v.TouchTrigger, 1)
 					task.wait(speed)
-					tp(workspace.GroupBuildStructures.BlockTower.Trigger.CFrame)
+					tp(workspace.GroupBuildStructures.BlockTower.Trigger.CFrame + Vector3.new(0, 4, 0))
 				end
 			
 				if v.Name:find("Food") and _G.AutoFarm then
@@ -108,7 +73,7 @@ function everyItemFarm()
 					task.wait(speed)
 					firetouchinterest(player.Character.Head, v.TouchTrigger, 1)
 					task.wait(speed)
-					tp(workspace.GroupBuildStructures.FoodCounter.Trigger.CFrame)
+					tp(workspace.GroupBuildStructures.FoodCounter.Trigger.CFrame + Vector3.new(0, 4, 0))
 				end
 			
 				if v.Name:find("Fuse") and _G.AutoFarm then
@@ -116,7 +81,7 @@ function everyItemFarm()
 					task.wait(speed)
 					firetouchinterest(player.Character.Head, v.TouchTrigger, 1)
 					task.wait(speed)
-					tp(workspace.GroupBuildStructures.FuseBoard.Trigger.CFrame)
+					tp(workspace.GroupBuildStructures.FuseBoard.Trigger.CFrame + Vector3.new(0, 4, 0))
 				end
 					
 				if v.Name:find("Battery") and _G.AutoFarm then
@@ -124,7 +89,7 @@ function everyItemFarm()
 					task.wait(speed)
 					firetouchinterest(player.Character.Head, v.TouchTrigger, 1)
 					task.wait(speed)
-					tp(workspace.GroupBuildStructures.BatteryBox.Trigger.CFrame)
+					tp(workspace.GroupBuildStructures.BatteryBox.Trigger.CFrame + Vector3.new(0, 4, 0))
 				end
 		end
 	end	
